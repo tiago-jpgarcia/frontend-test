@@ -1,0 +1,77 @@
+/**
+ * GRID SYSTEM, MIXINS
+ * based on:
+ * - https://css-tricks.com/dont-overthink-flexbox-grids/
+ * - https://getbootstrap.com/docs/4.1/layout/grid/
+ * - http://hugeinc.github.io/flexboxgrid-sass/
+ */
+
+/**
+ * grid-generate-sizes($breakpoint, $columns)
+ * Generates sizes for the grid based on
+ * $columns, all of them prefixed with "-$breakpoint".
+ */
+ @mixin grid-generate-sizes($breakpoint, $columns) {
+	@for $i from 1 through $columns {
+		.-#{$breakpoint}-#{$i} {
+			flex-basis: 100% / $columns * $i;
+			max-width: 100% / $columns * $i;
+		}
+	}
+	.-#{$breakpoint}-auto {
+		flex-basis: 0;
+		flex-grow: 1;
+		max-width: 100%;
+	}
+	.-#{$breakpoint}-min {
+		flex-basis: auto;
+		flex-grow: 0;
+		max-width: none;
+	}
+}
+
+/**
+ * Generates offsets for the grid based on
+ * $columns, all of them prefixed with "-$breakpoint".
+ */
+
+/**
+ * grid-generate-utils($breakpoint)
+ * Generates a set of utility functions for the grid,
+ * all of them suffixed with "-$breakpoint".
+ */
+@mixin grid-generate-utils($breakpoint) {
+	// horizontal alignment (applied to rows)
+	.-start-#{$breakpoint} { justify-content: flex-start; }
+	.-center-#{$breakpoint} { justify-content: center; }
+	.-end-#{$breakpoint} { justify-content: flex-end; }
+	.-justify-#{$breakpoint} { justify-content: stretch; }
+	.-around-#{$breakpoint} { justify-content: space-around; }
+	.-between-#{$breakpoint} { justify-content: space-between; }
+	.-evenly-#{$breakpoint} { justify-content: space-evenly; }
+
+	// horizontal alignment (applied to cols)
+	.-self-start-#{$breakpoint} { justify-self: flex-start; }
+	.-self-center-#{$breakpoint} { justify-self: center; }
+	.-self-end-#{$breakpoint} { justify-self: flex-end; }
+	.-self-justify-#{$breakpoint} { justify-self: stretch; }
+
+	// vertical alignment (applied to rows)
+	.-top-#{$breakpoint} { align-items: flex-start; }
+	.-middle-#{$breakpoint} { align-items: center; }
+	.-bottom-#{$breakpoint} { align-items: flex-end; }
+	.-stretch-#{$breakpoint} { align-items: stretch; }
+
+	// vertical alignment (applied to cols)
+	.-self-top-#{$breakpoint} { align-self: flex-start; }
+	.-self-middle-#{$breakpoint} { align-self: center; }
+	.-self-bottom-#{$breakpoint} { align-self: flex-end; }
+	.-self-stretch-#{$breakpoint} { align-self: stretch; }
+
+	// order (applied to cols)
+	.-first-#{$breakpoint} { order: -1; }
+	.-last-#{$breakpoint} { order: 1; }
+
+	// order (applied to rows)
+	.-reverse-#{$breakpoint} { flex-direction: row-reverse; }
+}

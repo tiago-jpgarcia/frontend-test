@@ -1,0 +1,52 @@
+/**
+ * DEFAULT BREAKPOINTS
+ * These are overridable via config,
+ * should be included before systems are included.
+ */
+ $breakpoints: (
+	sm: 600px,
+	md: 768px,
+	lg: 1024px,
+	xl: 1366px,
+	xxl: 1440px,
+	xxxl: 1920px
+) !default;
+
+/**
+ * get-size($index)
+ * Returns the corresponding size of $index from $breakpoints.
+ */
+@function get-size($index) {
+	@return map-get($breakpoints, $index);
+}
+
+/**
+ * respond-above($key)
+ * Returns a media query with min-width with $key's size.
+ */
+@mixin respond-above($key, $media: screen) {
+	@media #{$media} and (min-width: get-size($key)) {
+		@content;
+	}
+}
+
+/**
+ * respond-above-up-to($key1, $key2)
+ * Returns a media query that ranges from min-width with $key1's size,
+ * to a max-width with $key2's size - 1.
+ */
+@mixin respond-above-up-to($key1, $key2, $media: screen) {
+	@media #{$media} and (min-width: get-size($key1)) and (max-width: get-size($key2) - 1) {
+		@content;
+	}
+}
+
+/**
+ * respond-up-to($key)
+ * Returns a media query with max-width with $key's size - 1.
+ */
+@mixin respond-up-to($key, $media: screen) {
+	@media #{$media} and (max-width: get-size($key) - 1) {
+		@content;
+	}
+}

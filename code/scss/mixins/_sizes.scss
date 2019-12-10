@@ -1,0 +1,23 @@
+$font-size-base: 16px !default;
+
+@function strip-unit($value) {
+	@return $value / ($value * 0 + 1);
+}
+
+@function get-size-ratio($value, $base, $unit: 1) {
+	@return strip-unit($value) / strip-unit($base) * $unit;
+}
+
+@function rem($value, $base: $font-size-base) {
+	@return get-size-ratio($value, $base, 1rem);
+}
+
+@function em($value, $base: $font-size-base) {
+	@return get-size-ratio($value, $base, 1em);
+}
+
+@function relative-to-rem-in-px($value, $size, $base: $font-size-base, $unit: 1em) {
+	$value: get-size-ratio($value, $base);
+	$size: strip-unit($size);
+	@return $value / $size * $unit;
+}

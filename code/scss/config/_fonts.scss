@@ -1,0 +1,41 @@
+@function get-rem($size, $base: $font-size-base) {
+	@return $size / $base * 1rem;
+}
+
+
+/**
+ * FONT FAMILY
+ */
+$font-family-text: 'Roboto', Helvetica, Arial, sans-serif;
+
+/**
+ * FONT WEIGHTS
+ */
+ $font-weight-bold: 700;
+ $font-weight-medium: 600;
+ $font-weight-regular: 400;
+ 
+
+ /**
+ * FONT SIZES
+ */
+$font-size-base: 16;
+$font-size-base-px: $font-size-base * 1px;
+
+// default text (body text)
+$font-size-text: get-rem(18);
+$font-size-text-mobile: get-rem(16);
+$letter-spacing-text: 0.1px;
+$line-height-text: 26px;
+$line-height-text-mobile: 22px;
+
+/**
+* FONT FAMILY IMPORTS
+*/
+
+$font-file-path: '../fonts/';
+
+// Regular
+@include font-face('Roboto', $font-file-path + 'Roboto-Regular');
+@include font-face('Roboto', $font-file-path + 'Roboto-medium', $weight: 600);
+@include font-face('Roboto', $font-file-path + 'Roboto-Bold', $weight: 800);

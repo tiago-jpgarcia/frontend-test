@@ -1,0 +1,9 @@
+@mixin font-properties($size, $letter-spacing: false, $line-height: false) {
+	font-size: $size;
+	@if ($letter-spacing != false) {
+		letter-spacing: relative-to-rem-in-px($letter-spacing, $size);
+	}
+	@if ($line-height != false) {
+		line-height: relative-to-rem-in-px($line-height, $size, $unit: 1);
+	}
+}
