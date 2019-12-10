@@ -1,0 +1,16 @@
+{
+  "name": "bold",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "sass": "^1.23.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "sass scss/main.scss css/style.css --watch",
+    "build": "sass scss/main.scss css/style.css"
+  },
+  "author": "",
+  "license": "ISC"
+}
