@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Test</title>
+    <title>Diamond app</title>
 </head>
 <body>
-<h1>Teste</h1>
-<h2>Teste</h2>
-<h3>Teste</h3>
-<h4>Teste</h4>
-<p>Olá</p>
 
-<div class="row">
-    <div class="col -xs-12 -sm-6">
-        Ola
+<!-- header -->
+<section class="header">
+    <div class="row -middle-xs">
+        <div class="col -xs-12 -md-2">
+            <h1>
+                <a href="#">
+                    <img class="logo" alt="logo" src="images/diamond.png" />
+                </a>
+            </h1>
+        </div>
+        <div class="col -xs-12 -md-10">
+            <form class="form-container" method="post">
+                <input class="input-box" type="text" name="title" value="" required>
+            </form>
+        </div>
     </div>
-    <div class="col -xs-12 -sm-6">
-        Ola
-    </div>
-    <div class="col -xs-12 -sm-6">
-        Ola
-    </div>
-    <div class="col -xs-12 -sm-6">
-        Ola
-    </div>
-    <div class="col -xs-12 -sm-6">
-        Ola
-    </div>
-    <div class="col -xs-12 -sm-6">
-        Ola
-    </div>
+</section>
 
-</div>
+<section class="movies-container">
+    <div id="allmovies" class="row"></div>
+    <div id="load">
+        <button class="load-more">Load More</button>
+    </div>
+</section>
+
+<section class="single-movie">
+    <div id="single-movie" class="row">
+        
+    </div>
+</section>
+
 <script src="js/script.js"></script>
 
 </body>
