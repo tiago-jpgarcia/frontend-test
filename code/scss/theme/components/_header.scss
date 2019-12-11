@@ -1,0 +1,25 @@
+.header {
+    h1 {
+        text-align: center;
+        .logo {
+            width: 100px;
+            height: 100px;
+        }
+        @include respond-above(md) { text-align: left }
+    }
+    
+    .form-container {
+        display: flex;
+        justify-content: center;
+        >.input-box {
+            width: 100%;
+            border: 1px solid $color-grey;
+            border-radius: 0.25rem;
+            min-height: 2rem;
+            padding: em(12, 18) em(6, 18);
+            outline: none;
+            @include respond-above(md) { width: 50%; }
+        }
+    }
+    
+}

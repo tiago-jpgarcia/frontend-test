@@ -1,0 +1,20 @@
+.single-movie {
+
+    display: block;
+
+    .title {
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .details {
+        display: flex;
+
+        ul {
+            margin: 0;
+            padding: 1em;
+        }
+    }
+}
